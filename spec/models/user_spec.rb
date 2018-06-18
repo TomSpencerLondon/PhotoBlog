@@ -23,6 +23,13 @@ RSpec.describe User, type: :model do
       @user.password = nil 
       expect(@user).to_not be_valid
     end 
+  end 
+
+  describe "length validations" do 
+    it 'should not allow a name longer than 50 characters' do 
+      @user.name = "j" * 51
+      expect(@user).to_not be_valid
+    end 
 
   end 
 
